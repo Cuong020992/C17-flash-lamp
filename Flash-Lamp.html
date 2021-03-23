@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Battery{
+        energy;
+
+        constructor(energy) {
+            this.energy = energy;
+        }
+
+        getEnergy(){
+            return this.energy;
+        }
+
+        decreaseEnergy(){
+            if(this.energy>0){
+                this.energy--;
+            }
+        }
+    }
+
+    class  FlashLamp {
+        status;
+        battery;
+
+        constructor(status,battery){
+            this.status = status;
+            this.battery = battery;
+        }
+
+        getinforEnergy(){
+           return this.battery.getEnergy();
+        }
+
+        light(){
+            if(this.status){
+                alert('đèn sáng');
+            }
+            else alert('đèn tối');
+        }
+
+        turnOn(){
+            this.status = true;
+            return this.battery.decreaseEnergy()
+        }
+        turnOff(){
+            this.status = false;
+        }
+    }
+
+    energy = 10;
+    let battery = new Battery(energy);
+    let flash = new FlashLamp(status,battery);
+    document.write('Thời lượng pin: '+flash.getinforEnergy()+ '<br>');
+
+    document.write('bật công tắc ');
+    flash.turnOn();
+    flash.light();
+    document.write('Thời lượng pin: '+flash.getinforEnergy()+ '<br>');
+
+    document.write('tắt công tắc ');
+    flash.turnOff();
+    flash.light();
+    document.write('Thời lượng pin: '+flash.getinforEnergy()+ '<br>');
+
+
+</script>
